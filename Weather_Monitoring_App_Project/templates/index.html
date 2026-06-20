@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Weather Monitoring System</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+<h1>Weather Monitoring System</h1>
+<div id="clock"></div>
+<form method="POST">
+
+<input type="text"
+name="city"
+placeholder="Enter City Name"
+required>
+
+<button type="submit">
+Search
+</button>
+
+</form>
+
+{% if weather %}
+
+<div class="card">
+
+<h2>{{ weather.city }}</h2>
+
+<img src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png">
+
+<p>Temperature : {{ weather.temp }} °C</p>
+
+<p>Humidity : {{ weather.humidity }} %</p>
+
+<p>Wind Speed : {{ weather.wind }} m/s</p>
+
+<p>Condition : {{ weather.description }}</p>
+
+</div>
+
+{% endif %}
+
+<br><br>
+
+<a href="/history">📋 History</a>
+
+|
+
+<a href="/analytics">📊 Analytics</a>
+
+|
+
+<a href="/forecast">🌦 Forecast</a>
+
+|
+
+<a href="/prediction">🤖 Prediction</a>
+<script src="{{ url_for('static', filename='script.js') }}"></script>   
+</body>
+</html>

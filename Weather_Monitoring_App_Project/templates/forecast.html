@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>5-Day Forecast</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>🌤 5-Day Weather Forecast</h1>
+
+<table border="1" align="center">
+
+    <tr>
+        <th>Date</th>
+        <th>Temperature (°C)</th>
+        <th>Condition</th>
+    </tr>
+
+    {% for day in forecast %}
+
+    <tr>
+        <td>{{ day.date }}</td>
+        <td>{{ day.temp }}</td>
+        <td>{{ day.description }}</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">🏠 Home</a>
+
+</body>
+</html>

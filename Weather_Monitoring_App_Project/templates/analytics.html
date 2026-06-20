@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Analytics</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Weather Analytics Dashboard</h1>
+
+  <h2>📍 City: {{ city }}</h2>
+
+   <h3>🌡 Temperature: {{ temp }} °C</h3>
+
+   <h3>💧 Humidity: {{ humidity }} %</h3>
+
+   <h3>🌬 Wind Speed: {{ wind }} m/s</h3>
+
+   <h3>🕒 Search Time: {{ date_time }}</h3>
+    <br>
+
+    <div class="card">
+        <h2>Temperature Trend</h2>
+        <canvas id="tempChart"></canvas>
+    </div>
+
+    <br>
+
+    <div class="card">
+        <h2>Humidity Trend</h2>
+        <canvas id="humidityChart"></canvas>
+    </div>
+
+    <br>
+
+    <a href="/">⬅ Back to Home</a>
+
+    <script>
+        // Temperature Chart
+        const tempCtx = document.getElementById('tempChart');
+
+        new Chart(tempCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                datasets: [{
+                    label: 'Temperature (°C)',
+                    data: [28, 30, 29, 31, 27],
+                    borderWidth: 3,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        // Humidity Chart
+        const humidityCtx = document.getElementById('humidityChart');
+
+        new Chart(humidityCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                datasets: [{
+                    label: 'Humidity (%)',
+                    data: [70, 75, 68, 80, 72],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+
+</body>
+</html>

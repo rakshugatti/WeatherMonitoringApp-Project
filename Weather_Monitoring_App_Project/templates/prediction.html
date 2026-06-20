@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Temperature Prediction</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<h1>🤖 Temperature Prediction</h1>
+
+<div class="card">
+
+    <h2>
+        Predicted Tomorrow Temperature
+    </h2>
+
+    <h1>
+        {{ prediction }} °C
+    </h1>
+
+</div>
+
+<br>
+
+<a href="/">🏠 Home</a>
+
+</body>
+</html>
